@@ -1,0 +1,32 @@
+<!Doctype html>
+<html ng-app="myapp">
+	<head>
+	</head>
+	<body>
+		<div ng-controller="mymapcontroller">
+			<form ng-submit="addAddress()">
+				<input ng-model="address">
+				<button>Submit</button>
+			</form>
+			<table>
+				<thead>
+					<tr>
+						<td>Address</td>
+						<td>Map</td>
+					</tr>
+				</thead>
+					
+				<tbody>
+					<tr ng-repeat="address in addresses">
+						<td>{{address}}</td>
+						<td>
+							<img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBIJaUnESSlhHoPTOGCv0LNf0H-Zv_pEwE&center={{address}}&zoom=16&size=400x200&maptype=satellite">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

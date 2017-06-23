@@ -1,14 +1,44 @@
 <h1>Home</h1>
-
+<my-directive student="obj" ng-repeat="obj in students | filter:myfilter | orderBy :tableOrder" ></my-directive>
 <p>Welcome to our website</p>
+<br /><br /><br /><br />
 
-<a href="#!/product/2">Product 1</a><br />
-<a href="#!/product/25">Product 2</a><br />
-<a href="#!/product/29">Product 3</a><br />
-<a href="#!/product/432">Product 4</a><br />
-<a href="#!/product/778">Product 5</a><br />
 
-<a href="#!/test?id=1&mid=2">Link 1</a><br/>
-<a href="#!/test?id=30&mid=12">Link 2</a><br/>
-<a href="#!/test?id=15&mid=25">Link 3</a><br/>
-<a href="#!/test?id=19&mid=27">Link 4</a><br/>
+<br /><br />
+
+<button ng-click="myf()">Change Roll</button>
+
+
+<br /><br />
+
+{{x | uppercase}}<br />
+{{x | lowercase}}<br />
+{{mydate | date:'d/M/yyyy'}}<br />
+{{test | number:2}}<br />
+{{test | currency:'&#x20b9; '}}<br />
+
+<input ng-model="myfilter">
+<table>
+	<thead>
+		<tr>
+			<td ng-click="tableOrder='name'">Name</td>
+			<td ng-click="tableOrder='roll'">Roll</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="obj in students | filter:myfilter | orderBy :tableOrder | limitTo: 4">
+			<td>{{obj.name}}</td>
+			<td>{{obj.roll}}</td>
+		</tr>
+	</tbody>
+</table>
+<a href="/product/2">Product 1</a><br />
+<a href="/product/25">Product 2</a><br />
+<a href="/product/29">Product 3</a><br />
+<a href="/product/432">Product 4</a><br />
+<a href="/product/778">Product 5</a><br />
+
+<a href="/test?id=1&mid=2">Link 1</a><br/>
+<a href="/test?id=30&mid=12">Link 2</a><br/>
+<a href="/test?id=15&mid=25">Link 3</a><br/>
+<a href="/test?id=19&mid=27">Link 4</a><br/>
